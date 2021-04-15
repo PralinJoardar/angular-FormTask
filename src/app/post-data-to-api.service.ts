@@ -6,22 +6,18 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PostDataToApiService {
   constructor(private http: HttpClient) {}
-  postData(data) {
+  postData(data: any) {
     let url = 'https://jsonplaceholder.typicode.com/posts';
-    this.http
-      .post(url, {
-        method: 'POST',
-        body: JSON.stringify({
-          title: 'User Data',
-          body: data,
-          userId: 1,
-        }),
-        headers: {
-          'Content-type': 'application/json; charset=UTF-8',
-        },
-      })
-      .subscribe((response: any) => {
-        console.log(response);
-      });
+    return this.http.post(url, {
+      method: 'POST',
+      body: JSON.stringify({
+        title: 'User Data',
+        body: data,
+        userId: 1,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    });
   }
 }

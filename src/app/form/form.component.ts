@@ -42,10 +42,14 @@ export class FormComponent implements OnInit {
   get contactNumber() {
     return this.userDetailsForm.get('contactNumber');
   }
-
+  submittedData: any;
   handleSubmit() {
     console.log(this.userDetailsForm.value);
-    this.data.postData(this.userDetailsForm.value);
+    this.data.postData(this.userDetailsForm.value).subscribe((response) => {
+      this.submittedData = response;
+      console.log('response', response);
+      console.log('submittedData', this.submittedData);
+    });
     alert('Data Submitted successfully !');
   }
 }
