@@ -1,14 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { PostDataToApiService } from '../post-data-to-api.service';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss'],
 })
 export class FormComponent implements OnInit {
-  constructor() {}
 
-  ngOnInit(): void {}
+  userData=[];
+  constructor(private data: PostDataToApiService) {
+    data.postData(this.userData);
+  }
+
+  ngOnInit(): any {}
 
   userDetailsForm = new FormGroup({
     userName: new FormControl('', Validators.required),
@@ -43,6 +48,7 @@ export class FormComponent implements OnInit {
   }
 
   handleSubmit() {
+    this.userData = this.userDetailsForm.value;
     console.log(this.userDetailsForm.value);
     alert('Data Submitted successfully !');
   }
