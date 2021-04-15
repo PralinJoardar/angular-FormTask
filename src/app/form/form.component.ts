@@ -7,11 +7,7 @@ import { PostDataToApiService } from '../post-data-to-api.service';
   styleUrls: ['./form.component.scss'],
 })
 export class FormComponent implements OnInit {
-
-  userData=[];
-  constructor(private data: PostDataToApiService) {
-    data.postData(this.userData);
-  }
+  constructor(private data: PostDataToApiService) {}
 
   ngOnInit(): any {}
 
@@ -48,8 +44,8 @@ export class FormComponent implements OnInit {
   }
 
   handleSubmit() {
-    this.userData = this.userDetailsForm.value;
     console.log(this.userDetailsForm.value);
+    this.data.postData(this.userDetailsForm.value);
     alert('Data Submitted successfully !');
   }
 }

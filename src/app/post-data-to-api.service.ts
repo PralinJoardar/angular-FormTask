@@ -20,10 +20,8 @@ export class PostDataToApiService {
           'Content-type': 'application/json; charset=UTF-8',
         },
       })
-      .toPromise()
-      .then((response: any) => {
-        console.log(response.body);
-        // console.log(JSON.stringify(response.json));
+      .subscribe((response: any) => {
+        console.log(response);
       });
   }
 }
