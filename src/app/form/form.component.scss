@@ -1,0 +1,20 @@
+.form-div {
+  margin: auto;
+  width: 50%;
+  margin-top: 5%;
+}
+.form-content {
+  padding-top: 20px;
+}
+input.ng-touched {
+  border-left: 5px solid red;
+}
+input.ng-valid {
+  border-left: 5px solid green;
+}
+.error {
+  color: red;
+}
+.fine {
+  color: green;
+}

@@ -1,0 +1,99 @@
+<div class="col-sm-6 form-div">
+  <h2>User Details</h2>
+  <hr />
+  <div class="form-content">
+    <form [formGroup]="userDetailsForm" (ngSubmit)="handleSubmit()">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label>User Name</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter User Name"
+            formControlName="userName"
+          />
+          <small class="error" *ngIf="userName.invalid && userName.touched"
+            >Please enter valid User Name !</small
+          >
+          <small class="fine" *ngIf="userName.valid && userName.touched">
+            Looks Fine ...</small
+          >
+        </div>
+        <div class="form-group col-md-6">
+          <label>Password</label>
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Enter Password"
+            formControlName="password"
+          />
+          <small class="error" *ngIf="password.invalid && password.touched"
+            >Please enter valid Password !</small
+          >
+          <small class="fine" *ngIf="password.valid && password.touched">
+            Looks Fine ...</small
+          >
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Address</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter Address"
+          formControlName="address"
+        />
+        <small class="error" *ngIf="address.invalid && address.touched"
+          >Please enter valid Address !</small
+        >
+        <small class="fine" *ngIf="address.valid && address.touched">
+          Looks Fine ...</small
+        >
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label>Email</label>
+          <input
+            type="email"
+            class="form-control"
+            placeholder="Enter Email"
+            formControlName="email"
+          />
+          <small class="error" *ngIf="email.invalid && email.touched"
+            >Please enter valid Email !</small
+          >
+          <small class="fine" *ngIf="email.valid && email.touched">
+            Looks Fine ...</small
+          >
+        </div>
+        <div class="form-group col-md-6">
+          <label>Contact Number</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter Contact Number"
+            formControlName="contactNumber"
+          />
+          <small
+            class="error"
+            *ngIf="contactNumber.invalid && contactNumber.touched"
+            >Please enter valid Contact Number !</small
+          >
+          <small
+            class="fine"
+            *ngIf="contactNumber.valid && contactNumber.touched"
+          >
+            Looks Fine ...</small
+          >
+        </div>
+      </div>
+      <button
+        type="submit"
+        [disabled]="userDetailsForm.invalid"
+        class="btn btn-primary"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
