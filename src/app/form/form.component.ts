@@ -12,14 +12,20 @@ export class FormComponent implements OnInit {
   ngOnInit(): any {}
 
   userDetailsForm = new FormGroup({
-    userName: new FormControl('', Validators.required),
+    userName: new FormControl('', [
+      Validators.required,
+      Validators.minLength(5),
+    ]),
     password: new FormControl('', [
       Validators.required,
       Validators.pattern(
         '(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:{\\}\\[\\]\\|\\+\\-\\=\\_\\)\\(\\)\\`\\/\\\\\\]])[A-Za-z0-9d$@].{7,}'
       ),
     ]),
-    address: new FormControl('', Validators.required),
+    address: new FormControl('', [
+      Validators.required,
+      Validators.minLength(10),
+    ]),
     email: new FormControl('', [Validators.required, Validators.email]),
     contactNumber: new FormControl('', [
       Validators.required,
@@ -47,7 +53,6 @@ export class FormComponent implements OnInit {
     console.log(this.userDetailsForm.value);
     this.data.postData(this.userDetailsForm.value).subscribe((response) => {
       this.submittedData = response;
-      console.log('response', response);
       console.log('submittedData', this.submittedData);
     });
     alert('Data Submitted successfully !');
